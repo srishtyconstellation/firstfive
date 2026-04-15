@@ -1,0 +1,234 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --maroon:#6B1414;
+  --maroon2:#8B1A1A;
+  --gold:#F5C518;
+  --gold2:#FFD84D;
+  --gold-dim:#C49B10;
+  --offwhite:#FFF8E7;
+  --ink:#1a0505;
+}
+.W{background:var(--maroon);border-radius:18px;overflow:hidden;font-family:'Space Grotesk',sans-serif;color:white}
+.bebas{font-family:'Bebas Neue',sans-serif;letter-spacing:2px}
+.playfair{font-family:'Playfair Display',serif}
+
+.hero{position:relative;padding:60px 32px 72px;text-align:center;overflow:hidden;background:var(--maroon)}
+.hero-noise{position:absolute;inset:0;background-image:
+  repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(245,197,24,0.04) 28px),
+  repeating-linear-gradient(90deg,transparent,transparent 27px,rgba(245,197,24,0.04) 28px);
+  z-index:0}
+.hero-lines{position:absolute;inset:0;z-index:1}
+.hl{position:absolute;background:rgba(245,197,24,0.06);border-radius:50%;border:1px solid rgba(245,197,24,0.09)}
+.hl1{width:340px;height:340px;top:50%;left:50%;transform:translate(-50%,-60%)}
+.hl2{width:560px;height:560px;top:50%;left:50%;transform:translate(-50%,-55%)}
+.hl3{width:800px;height:800px;top:50%;left:50%;transform:translate(-50%,-52%)}
+.hc{position:relative;z-index:2}
+.logo-badge{display:inline-block;background:var(--gold);color:var(--maroon);padding:10px 28px 12px;border-radius:8px;margin-bottom:28px;transform:rotate(-1.8deg);border-bottom:4px solid var(--gold-dim)}
+.logo-badge span{font-family:'Bebas Neue',sans-serif;font-size:46px;letter-spacing:4px;display:inline-block;transform:rotate(1.8deg)}
+.hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,197,24,0.6);margin-bottom:14px;font-weight:400}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,9vw,80px);letter-spacing:3px;line-height:0.95;color:white;margin-bottom:8px}
+.hero-h1 .gold{color:var(--gold)}
+.hero-kicker{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(14px,2.5vw,18px);color:rgba(255,255,255,0.55);margin-bottom:32px;line-height:1.5}
+.arrow-down{display:flex;flex-direction:column;align-items:center;gap:5px;margin-top:8px}
+.arrow-down span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,197,24,0.4)}
+.chevron{width:18px;height:18px;border-right:2px solid rgba(245,197,24,0.35);border-bottom:2px solid rgba(245,197,24,0.35);transform:rotate(45deg);animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+.nav{display:flex;gap:6px;padding:14px 20px;background:rgba(0,0,0,0.25);flex-wrap:wrap;justify-content:center;border-bottom:1px solid rgba(245,197,24,0.12)}
+.tab{padding:7px 18px;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid rgba(245,197,24,0.25);color:rgba(255,255,255,0.5);background:transparent;transition:all 0.18s;letter-spacing:1.5px;text-transform:uppercase;font-family:'Space Grotesk',sans-serif}
+.tab.on,.tab:hover{background:var(--gold);color:var(--maroon);border-color:var(--gold)}
+
+.sec{padding:44px 28px;display:none;border-bottom:1px solid rgba(245,197,24,0.08)}
+.sec.on{display:block}
+
+.eyebrow{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,197,24,0.55);margin-bottom:10px;font-weight:400}
+.sec-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,6vw,52px);letter-spacing:2px;line-height:1;color:white;margin-bottom:6px}
+.sec-h .g{color:var(--gold)}
+.sec-sub{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:30px;max-width:520px;font-weight:300}
+
+.pull{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,3vw,22px);color:white;line-height:1.45;margin-bottom:24px;border-left:3px solid var(--gold);padding-left:20px}
+.pull em{color:var(--gold);font-style:normal}
+
+.hbox{background:rgba(245,197,24,0.07);border:1px solid rgba(245,197,24,0.22);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:18px 20px;margin:18px 0}
+.hbox p{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.75}
+.hbox strong{color:var(--gold);font-weight:500}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:20px}
+.card{background:rgba(255,255,255,0.05);border:1px solid rgba(245,197,24,0.13);border-radius:10px;padding:20px 16px;transition:all 0.2s}
+.card:hover{background:rgba(245,197,24,0.07);border-color:rgba(245,197,24,0.35);transform:translateY(-2px)}
+.card-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:rgba(245,197,24,0.25);letter-spacing:2px;line-height:1;margin-bottom:8px}
+.card-t{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:0.5px;margin-bottom:6px;text-transform:uppercase}
+.card-b{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.65;font-weight:300}
+
+.members{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:24px 0}
+.mem{background:rgba(255,255,255,0.04);border:1px solid rgba(245,197,24,0.13);border-radius:8px;padding:16px 8px;text-align:center}
+.mem-n{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);letter-spacing:2px}
+.mem-r{font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px}
+
+.tl{padding-left:22px;position:relative}
+.tl::before{content:'';position:absolute;left:5px;top:10px;bottom:10px;width:1.5px;background:rgba(245,197,24,0.18)}
+.tli{position:relative;margin-bottom:26px}
+.tld{position:absolute;left:-22px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2.5px solid var(--maroon)}
+.tl-era{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,197,24,0.55);margin-bottom:3px}
+.tl-t{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1.5px;color:white;margin-bottom:3px}
+.tl-d{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.stat{text-align:center;padding:16px 8px;background:rgba(245,197,24,0.06);border:1px solid rgba(245,197,24,0.12);border-radius:8px}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--gold);letter-spacing:2px}
+.stat-l{font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1.5px;margin-top:2px}
+
+.why-list{list-style:none;margin-top:12px}
+.wi{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(245,197,24,0.07)}
+.wi:last-child{border:none}
+.wb{width:26px;height:26px;border-radius:5px;background:var(--gold);color:var(--maroon);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.wt{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;font-weight:300}
+.wt strong{color:white;font-weight:500}
+
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+.chip{background:rgba(245,197,24,0.08);border:1px solid rgba(245,197,24,0.18);border-radius:4px;padding:5px 12px;font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.5px}
+
+.cta{background:var(--gold);border-radius:12px;padding:30px 24px;text-align:center;margin-top:24px}
+.cta-h{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;color:var(--maroon);margin-bottom:6px}
+.cta-p{font-size:13px;color:rgba(107,20,20,0.7);margin-bottom:18px;line-height:1.65;font-weight:300}
+.cta-btn{background:var(--maroon);color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;padding:12px 32px;border-radius:6px;border:none;cursor:pointer;transition:all 0.2s}
+.cta-btn:hover{transform:translateY(-2px)}
+
+.divider{height:1px;background:rgba(245,197,24,0.1);margin:4px 0}
+
+@media(max-width:480px){
+  .members{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">FIRSTFIVE interactive brand and marketing proposal — five chapters covering story, strategy, content, visual identity, and why us</h2>
+
+<div class="W">
+
+<div class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-lines">
+    <div class="hl hl1"></div>
+    <div class="hl hl2"></div>
+    <div class="hl hl3"></div>
+  </div>
+  <div class="hc">
+    <div class="logo-badge"><span>FIRST5</span></div>
+    <p class="hero-eyebrow">A proposal by [Your Agency Name]</p>
+    <h1 class="hero-h1">We don't make<br><span class="gold">content.</span><br>We build</h1>
+    <h1 class="hero-h1" style="color:var(--gold);font-size:clamp(52px,11vw,96px);margin-top:-6px">LEGENDS.</h1>
+    <p class="hero-kicker">Five boys. One shot. The kind of story that starts in a<br>cramped studio and ends on a stadium screen.</p>
+    <div class="arrow-down"><span>explore</span><div class="chevron"></div></div>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="tab on" onclick="show('story',this)">The Story</button>
+  <button class="tab" onclick="show('strategy',this)">Strategy</button>
+  <button class="tab" onclick="show('content',this)">Content</button>
+  <button class="tab" onclick="show('identity',this)">Identity</button>
+  <button class="tab" onclick="show('why',this)">Why Us</button>
+</div>
+
+<div class="sec on" id="s-story">
+  <p class="eyebrow">Chapter 01 — The story</p>
+  <h2 class="sec-h">The world doesn't need<br>another <span class="g">boy band.</span></h2>
+  <p class="sec-sub">It needs one that feels like yours. Raw, real, and worth watching — not a PR campaign with five faces attached to it.</p>
+  <p class="pull">FIRSTFIVE isn't a group.<br>It's a <em>movement in a room of five.</em></p>
+  <div class="hbox"><p>Gen Z doesn't fall for polish. They fall for <strong>process</strong>. The late nights, the arguments, the almost-there moments. FIRSTFIVE's biggest asset isn't their sound — it's their <strong>story, unfiltered.</strong></p></div>
+  <div class="members">
+    <div class="mem"><div class="mem-n">01</div><div class="mem-r">The Voice</div></div>
+    <div class="mem"><div class="mem-n">02</div><div class="mem-r">The Vibe</div></div>
+    <div class="mem"><div class="mem-n">03</div><div class="mem-r">The Edge</div></div>
+    <div class="mem"><div class="mem-n">04</div><div class="mem-r">The Soul</div></div>
+    <div class="mem"><div class="mem-n">05</div><div class="mem-r">The Fire</div></div>
+  </div>
+  <p style="font-size:11px;color:rgba(255,255,255,0.28);letter-spacing:0.5px">Five distinct personalities. One inseparable identity. That tension — that's the content.</p>
+</div>
+
+<div class="sec" id="s-strategy">
+  <p class="eyebrow">Chapter 02 — The plan</p>
+  <h2 class="sec-h">Not a calendar.<br><span class="g">A campaign with</span><br>a heartbeat.</h2>
+  <p class="sec-sub">Every post, reel, and story lives inside a larger arc. The audience isn't just following — they're watching something be built in real time.</p>
+  <div class="tl">
+    <div class="tli"><div class="tld"></div><div class="tl-era">Month 1–2</div><div class="tl-t">THE TEASER ERA</div><div class="tl-d">Fragments, shadows, candid clips. No reveal — just energy. Create the question before the answer exists.</div></div>
+    <div class="tli"><div class="tld"></div><div class="tl-era">Month 3–4</div><div class="tl-t">SHOW THE PROCESS</div><div class="tl-d">Studio sessions, raw moments, personality-first content. Fans form attachments — to individuals and the group.</div></div>
+    <div class="tli"><div class="tld"></div><div class="tl-era">Month 5–6</div><div class="tl-t">THE DROP ERA</div><div class="tl-d">First release with a full visual campaign — reels, posters, behind-the-scenes series. Strategic LinkedIn reach to niche loyalists.</div></div>
+    <div class="tli"><div class="tld"></div><div class="tl-era">Month 7+</div><div class="tl-t">COMMUNITY MODE</div><div class="tl-d">Fan invites, Q&As, polls. Audience stops being followers — they become co-authors of the story.</div></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">4×</div><div class="stat-l">Reels / week</div></div>
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Content pillars</div></div>
+    <div class="stat"><div class="stat-n">1</div><div class="stat-l">Unified story arc</div></div>
+  </div>
+</div>
+
+<div class="sec" id="s-content">
+  <p class="eyebrow">Chapter 03 — The content</p>
+  <h2 class="sec-h">Content that hits<br>like a <span class="g">first listen.</span></h2>
+  <p class="sec-sub">Every format has a job. Nothing is random. Every reel, meme, and BTS clip is a deliberate touchpoint in an emotional journey.</p>
+  <div class="cards">
+    <div class="card"><div class="card-num">01</div><div class="card-t">Reels & Short-form</div><div class="card-b">Trend-aware, not trend-chained. We make the trend FIRSTFIVE's — not the other way around.</div></div>
+    <div class="card"><div class="card-num">02</div><div class="card-t">Behind the Music</div><div class="card-b">Studio sessions, practice chaos, late-night candid clips. The content that builds parasocial loyalty.</div></div>
+    <div class="card"><div class="card-num">03</div><div class="card-t">Fan-First Formats</div><div class="card-b">Polls, Q&As from DMs, "you chose this" content. Make the audience feel like co-creators.</div></div>
+    <div class="card"><div class="card-num">04</div><div class="card-t">Meme & Relatable</div><div class="card-b">The "they're just like us" axis. Human, unfiltered moments alongside aspirational content.</div></div>
+    <div class="card"><div class="card-num">05</div><div class="card-t">Shoot Days</div><div class="card-b">Each shoot = posters + Reels + BTS clips. Max output. Story-driven direction, not stock poses.</div></div>
+    <div class="card"><div class="card-num">06</div><div class="card-t">LinkedIn Amplification</div><div class="card-b">Strategic reach to niche, loyal audiences. Quality fanbase over inflated numbers.</div></div>
+  </div>
+  <div class="hbox"><p><strong>The content philosophy:</strong> Show emotions. Show struggles. Show wins and chaos and fun. Build content people want to <strong>be inside</strong> — not just watch.</p></div>
+</div>
+
+<div class="sec" id="s-identity">
+  <p class="eyebrow">Chapter 04 — The look</p>
+  <h2 class="sec-h">A look so distinct,<br>you know it before<br><span class="g">you read it.</span></h2>
+  <p class="sec-sub">FIRSTFIVE's visual identity isn't a mood board — it's a language. Every colour, cut, and composition tells the same story.</p>
+  <div class="cards">
+    <div class="card"><div class="card-num">01</div><div class="card-t">Core Palette</div><div class="card-b">Deep maroon + bold gold. Grounded, bold, immediately recognizable. Warm enough to feel human, strong enough to feel undeniable.</div></div>
+    <div class="card"><div class="card-num">02</div><div class="card-t">Album Cover Worlds</div><div class="card-b">Each release gets a visual universe — not just a cover. Typography, colour story, and shoot style evolve with every era.</div></div>
+    <div class="card"><div class="card-num">03</div><div class="card-t">Grid as Canvas</div><div class="card-b">The Instagram grid as a statement. First-time visitors should feel it before they follow.</div></div>
+    <div class="card"><div class="card-num">04</div><div class="card-t">Type & Motion</div><div class="card-b">Custom type treatments, motion graphics on Reels — everything moves with intention and instant recognition.</div></div>
+  </div>
+  <div class="hbox"><p><strong>Authenticity is the design principle.</strong> Not overproduced. Not generic. Every visual element should feel like it could only belong to FIRSTFIVE — and to no one else.</p></div>
+  <div class="chips">
+    <div class="chip">Album covers</div>
+    <div class="chip">Event posters</div>
+    <div class="chip">Reel templates</div>
+    <div class="chip">Instagram grid</div>
+    <div class="chip">Brand book</div>
+    <div class="chip">Motion graphics</div>
+    <div class="chip">Merchandise concepts</div>
+  </div>
+</div>
+
+<div class="sec" id="s-why">
+  <p class="eyebrow">Chapter 05 — Why us</p>
+  <h2 class="sec-h">Because we think<br><span class="g">like your fans.</span></h2>
+  <p class="sec-sub">Not because we're experienced in boardrooms. Because we've lived online — and we understand exactly how Gen Z attention works.</p>
+  <ul class="why-list">
+    <li class="wi"><div class="wb">01</div><div class="wt"><strong>We build loyalty before virality.</strong> A million views from strangers means nothing. A thousand fans who'd buy a ticket — that's the goal.</div></li>
+    <li class="wi"><div class="wb">02</div><div class="wt"><strong>We don't copy trends — we translate them.</strong> FIRSTFIVE doesn't sound like the trend. The trend starts sounding like FIRSTFIVE.</div></li>
+    <li class="wi"><div class="wb">03</div><div class="wt"><strong>We make content that earns attention.</strong> No paid reach tricks. No inflated metrics. Organic, emotional, earned.</div></li>
+    <li class="wi"><div class="wb">04</div><div class="wt"><strong>We think in stories, not posts.</strong> Every piece of content is a chapter. The audience always wants the next one.</div></li>
+    <li class="wi"><div class="wb">05</div><div class="wt"><strong>We care about what this becomes.</strong> FIRSTFIVE isn't a client — it's a project we want to say we were part of, from the first reel to the first headline.</div></li>
+  </ul>
+  <div class="cta">
+    <div class="cta-h">READY TO MAKE HISTORY?</div>
+    <p class="cta-p">This proposal is a start. The real conversation is where it becomes a plan. Let's talk about what FIRSTFIVE is going to be.</p>
+    <button class="cta-btn" onclick="sendPrompt('I want to move forward with the FIRSTFIVE proposal — let\'s talk next steps')">LET'S BUILD THIS ↗</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+function show(id,el){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('s-'+id).classList.add('on');
+  el.classList.add('on');
+}
+</script>
